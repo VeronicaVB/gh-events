@@ -2,6 +2,10 @@ name: Events Demo 1
 on:
   pull_request:
     types: -opened
+    branches:
+      - main # main
+      - "dev-*"
+      - "feat/**"
   workflow_dispatch:
   push:
     branches:
@@ -9,7 +13,7 @@ on:
       - "dev-*"
       - "feat/**"
     path-ignore:
-      - '.github/workflows/*' #this push event activates this workflow if we target one of these branches but we did not change a file in the workflows folder in the GitHub folder
+      - ".github/workflows/*" #this push event activates this workflow if we target one of these branches but we did not change a file in the workflows folder in the GitHub folder
 jobs:
   deploy:
     runs-on: ubuntu-latest
