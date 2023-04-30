@@ -8,6 +8,8 @@ on:
       - main # main
       - "dev-*"
       - "feat/**"
+    path-ignore:
+      - '.github/workflows/*' #this push event activates this workflow if we target one of these branches but we did not change a file in the workflows folder in the GitHub folder
 jobs:
   deploy:
     runs-on: ubuntu-latest
